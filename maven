@@ -1,0 +1,150 @@
+Maven:-->Build Tool-->create packages according to the type of projects
+------
+
+- Java based build tool
+- it'll work only for java projects
+- Ant, gradel are the other java based build tool which can be used to create a build
+- Maven is an open source
+- Apache is the vendor for Maven
+- Create a package depending on what type of project it is
+- OS is cross platform
+
+Build tool for other languages:
+-------------------------------
+
+.Net
+-----
+- MS Build
+- Nant
+
+Python:
+-------
+- PyBuilder
+
+JavaScript:
+-----------
+- Gulp/Grunt
+
+Ruby:
+-----
+Rake
+
+Source code, testcases, build scripts avaibale in a project
+
+Project Object Model:-->pom.xml
+
+Types of projects:
+------------------
+. Standalone Application--->java code+maifest files(class information)-->jar-->Java Archive
+. Web Application-->java code+web content(html, css, js)-->war-->Web Archive
+. Enterprise Application-->ecommerce, banking application-->atleat 1war
++n no.of jar files==>>ear--> Enterprise Archive
+
+pom.xml
+<packaging>jar</packaging>
+<packaging>war</packaging>
+<packaging>ear</packaging>
+
+Maven Directory Structure:
+--------------------------
+- bin--->mvn clean package-->contains all executable commands
+- conf-->contains conf' files like settings.xml
+- lib-->jar files, war files, ear files
+- boot-->run maven s/w
+
+Maven Installation:
+-------------------
+1GB RAM
+t2.micro instance type
+Java is the pre-requisite--->Java above 7 any version can be installed
+Maven requires only JDK-->Java Development Kit
+Maven 3.8.6
+java installation---> yum install java-11-openjdk-devel -y
+
+wget-->throgh which 3rd party s/w can be downloaded
+yum install wget unzip -y
+
+wget https://dlcdn.apache.org/maven/maven-3/3.9.0/binaries/apache-maven-3.9.0-bin.zip
+unzip apache-maven-3.9.0-bin.zip
+
+setting path for maven home dir'
+---------------------------------
+vi ~/.bash_profile-->confi path
+export M2_HOME=/opt/apache-maven-3.9.0
+export PATH=$PATH:$M2_HOME/bin
+
+source ~/.bash_profile--->set the path
+mvn -version-->display the maven version if conf' done correctly
+
+Sample content of pom.xml:
+--------------------------
+Maven-->pom.xml
+Ant-->build.xml
+Gradel-->build.gradel
+
+Apache Maven is a software project management and comprehension tool. Based on the concept of a
+project object model (POM), Maven can manage a project's build , reporting and documentation
+
+
+Repositories--->local repo, central repo and remote repo
+
+Dependencies?-->Packages--->libraries,config,versions,testcases,scope
+
+build.xml-->Ant
+pom.xml-->Maven
+build.gradle-->Gradel
+
+We can give customized name for all of these build files
+
+pom.xml--->developers will develope 
+<project>
+	<groupID>com.dbsbank</groupID>
+	<artifactID>maven-java-project</artifactID>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+<dependencies>
+	<dependency>
+		<groupID>Junit</groupID>
+		<artifactID>Juint</artifactID>
+		<version>3.8.1</version>
+		<scope>test</scope>	
+	</dependency>
+<dependency>
+    <groupId>org.kie.kogito</groupId>
+    <artifactId>kogito-springboot-starter</artifactId>
+    <version>1.22.1.Final</version>
+</dependency>
+</dependencies>
+</project>
+
+maven default path:-
+--------------------
+~/.m2/repository
+settings.xml:
+<loaclRepository>c:\\users\pavithra\m2.repository</localRepository>
+
+Note: All pom files will require project elements
+Mainly 3 project elements, they're:
+1. groupId
+2. artifactId
+3. Version
+
+Maven Life Cycle:
+-----------------
+1. clean: it will delete the previous build file-->mvn clean package
+2. site: it will generate the document for the source code
+3. default: 
+	- validate:it will validate the project structure and resources are there or not
+	- compile:compile the source code and the unit test case
+	- test:it will run the test cases
+	- package:it will create package or create the built artifacts (jar,war,ear) 
+	- install:it will store the build into local repo
+	- deploy:store the build into remote repo
+
+target-->build files
+
+
+vi setenv.sh
+export CATALINA_OPTS="$CATALINA_OPTS-Xms512m"
+export CATALINA_OPTS="$CATALINA_OPTS-Xms8192m"
+export CATALINA_OPTS="$CATALINA_OPTS-XX:MaxPemSize=256m"
